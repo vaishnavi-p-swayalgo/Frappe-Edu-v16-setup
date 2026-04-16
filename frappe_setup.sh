@@ -154,7 +154,6 @@ install_dependencies() {
   header "Installing System Dependencies"
   export DEBIAN_FRONTEND=noninteractive
 
-  add-apt-repository universe 2>/dev/null || true
   apt-get update -y -qq || err "apt-get update failed."
 
   apt-get install -y \
@@ -204,6 +203,7 @@ install_python() {
 
   if ! command -v "python${wanted_ver}" >/dev/null 2>&1; then
     log "python${wanted_ver} not found — adding deadsnakes PPA..."
+    apt-get install -y software-properties-common 2>/dev/null || true
     add-apt-repository -y ppa:deadsnakes/ppa 2>/dev/null || true
     apt-get update -y -qq 2>/dev/null || true
   fi
