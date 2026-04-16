@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  frappe:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: frappe-edu
+    hostname: frappe-edu
+    ports:
+      - "8000:8000"     # Frappe web UI
+      - "9000:9000"     # Socket.io
+    env_file:
+      - .env
+    volumes:
+      - frappe_data:/home/frappe          # Bench + site data (persistent)
+      - ./frappe-backup:/home/frappe/backups  # Backups saved to host
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  frappe_data:
