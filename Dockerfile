@@ -5,7 +5,7 @@ ENV TZ=Asia/Kolkata
 
 RUN apt-get update && apt-get install -y \
     sudo curl git wget nano tzdata lsof dos2unix file pkg-config \
-    software-properties-common \
+    software-properties-common libmariadb-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
