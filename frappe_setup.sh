@@ -187,8 +187,8 @@ install_dependencies() {
 }
 
 install_node() {
-  header "Installing Node.js 20 & Yarn"
-  curl -fsSL https://deb.nodesource.com/setup_20.x | bash - 2>/dev/null || true
+  header "Installing Node.js 24 & Yarn"
+  curl -fsSL https://deb.nodesource.com/setup_24.x | bash - 2>/dev/null || true
   apt-get install -y nodejs || err "nodejs install failed."
   npm install -g yarn --quiet 2>/dev/null || true
   log "Node $(node -v) and Yarn $(yarn -v) ready."
