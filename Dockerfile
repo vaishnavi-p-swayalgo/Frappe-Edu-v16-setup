@@ -6,9 +6,6 @@ ENV TZ=Asia/Kolkata
 RUN apt-get update && apt-get install -y \
     sudo curl git wget nano tzdata lsof dos2unix file pkg-config \
     software-properties-common \
-    && add-apt-repository ppa:deadsnakes/ppa -y \
-    && apt-get update && apt-get install -y \
-    python3.14 python3.14-venv python3.14-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
