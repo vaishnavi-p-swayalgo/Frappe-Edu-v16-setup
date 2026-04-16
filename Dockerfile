@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Kolkata
 
 RUN apt-get update && apt-get install -y \
-    sudo curl git wget nano tzdata lsof dos2unix file \
+    sudo curl git wget nano tzdata lsof dos2unix file pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
