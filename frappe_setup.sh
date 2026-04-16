@@ -697,8 +697,8 @@ run_install() {
   require_root
   prompt_install_vars
 
-  # v16 requires Python 3.12
-  local wanted_py="3.12"
+  # v16.15+ requires Python 3.14
+  local wanted_py="3.14"
 
   install_dependencies
   install_node
